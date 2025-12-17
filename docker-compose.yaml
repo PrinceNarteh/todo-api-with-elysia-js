@@ -4,14 +4,20 @@ services:
   db:
     image: postgres # Use a specific version, e.g., postgres:16
     container_name: elysia-db
+    restart: unless-stopped
     environment:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: secret_password
       POSTGRES_DB: todo
-    volumes:
-      - pgdata:/var/lib/postgresql/data # Persist data across container restarts
     ports:
       - "5432:5432" # Map container port 5432 to host port 5432
+    volumes:
+      - pgdata:/var/lib/postgresql/data # Persist data across container restarts
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U user -d todo_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
 volumes:
   pgdata:
