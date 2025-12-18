@@ -1,7 +1,7 @@
 import { relations } from "drizzle-orm";
 import { integer, pgTable, serial, varchar } from "drizzle-orm/pg-core";
-import { todos } from "./todos";
-import { users } from "./users";
+import { todos } from "./todos.schema";
+import { users } from "./users.schema";
 
 export const tags = pgTable("tags", {
   id: serial("id").primaryKey(),

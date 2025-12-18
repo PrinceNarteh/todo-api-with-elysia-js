@@ -6,8 +6,8 @@ import {
   timestamp,
   varchar,
 } from "drizzle-orm/pg-core";
-import { tags } from "./tags";
-import { todos } from "./todos";
+import { tags } from "./tags.schema";
+import { todos } from "./todos.schema";
 
 export const users = pgTable("users", {
   id: serial("id").primaryKey(),
