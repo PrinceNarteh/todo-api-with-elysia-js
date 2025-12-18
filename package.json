@@ -14,7 +14,11 @@
     "format": "bun run biome format src --write"
   },
   "dependencies": {
-    "elysia": "latest"
+    "@prisma/adapter-pg": "^7.2.0",
+    "@prisma/client": "^7.2.0",
+    "elysia": "latest",
+    "pg": "^8.16.3",
+    "prismabox": "^1.1.26"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.3.9",
